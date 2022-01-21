@@ -4,7 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
@@ -139,176 +139,31 @@ Published ports 5044, 5601 and 9200 were made available
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ELKserver
- C:\Users\sunyi\OneDrive\Desktop\project_elk\Elk-Stack-Deployment-Project> 
-
- Jump-Box-Provisioner
 
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- List the IP addresses of the machines you are monitoring
-    Web-1: 10.1.0.5
-    Web-2: 10.1.0.6
-    DVWA-VM3: 10.1.0.7
+- _TODO: List the IP addresses of the machines you are monitoring_
 
 We have installed the following Beats on these machines:
-
-  Filebeat
-
-    Filebeat Module Status Screeenshot
-
-  Metricbeat
-
-    Metricbeat Module Status Screenshot
-
-
-
-  
+- _TODO: Specify which Beats you successfully installed_
 
 These Beats allow us to collect the following information from each machine:
+- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 
-Filebeat will be used to collect log files from very specific files such as Apache, Microsoft Azure tools and webservers, MySQL databases.
-
-  Filebeat Module Kibana Dashboard Screenshot
-
-Metricbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
-
-  Metricbeat Module Kibana-Metric Docker Overview ECS Dashboard
-    Metric Module Kibana - Metric Docker Web-1 metric
-    Metric Module Kibana - Metric Docker Web-2 metric
-    Metric Module Kibana - Metric Docker DVWA-VM3 metrics
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
-  Verify the Public IP address to see if it has change. www.whatismyip.com
-
-  If change then update the Security Rules that uses the My Public IPv4
-
 SSH into the control node and follow the steps below:
-- Copy the yml file to ansible folder.
-- Update the config file to include remote users and ports
-- Run the playbook, and navigate to Kibana ((YOUR IP ADDRESS):5601) to check that the installation worked as expected.
+- Copy the _____ file to _____.
+- Update the _____ file to include...
+- Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
-For ELK VM Configuration:
-Copy the ELK Installation and VM Configuration
-Run the playbook using this command : ansible-playbook /etc/ansible/install-elk.yml
+_TODO: Answer the following questions to fill in the blanks:_
+- _Which file is the playbook? Where do you copy it?_
+- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- _Which URL do you navigate to in order to check that the ELK server is running?
 
-For Filebeat
-Download Filebeat playbook usng this command:
-curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml
-Copy the Filebeat Config file to /etc/ansible
-Update the filebeat-config.yml file to include the ELK private IP 10.2.0.4 as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/filebeat-config.yml
-
-output.elasticsearch:
-  # Boolean flag to enable or disable the output module.
-  #enabled: true
-
-  # Array of hosts to connect to.
-  # Scheme and port can be left out and will be set to the default (http and 9200)
-  # In case you specify and additional path, the scheme is required: http://localhost:9200/path
-  # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-  hosts: ["10.2.0.4:9200"]
-  username: "elastic"
-  password: "changeme" # TODO: Change this to the password you set
-
-# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
-# This requires a Kibana endpoint configuration.
-setup.kibana:
-  host: "10.2.0.4:5601" 
-# TODO: Change this to the IP address of your ELK server
-Run the playbook using this command ansible-playbook filebeat-playbook.yml and navigate to Kibana > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
-
-For Metricbeat
-
-Download Metricbeat playbook using this command:
-
-curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml Copy the Metricbeat Config file to /etc/ansible
-Update the metricbeat-config.yml file to include the ELK private IP 10.2.0.4 as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/metricbeat-config.yml
-
-#============================== Kibana =====================================
-
-# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
-# This requires a Kibana endpoint configuration.
-setup.kibana:
-  host: "10.2.0.4:5601"
-  
-#-------------------------- Elasticsearch output ------------------------------
-output.elasticsearch:
-  # TODO: Change the hosts IP address to the IP address of your ELK server
-  # TODO: Change password from `changem` to the password you created
-  hosts: ["10.2.0.4:9200"]
-  username: "elastic"
-  password: "changeme"
-
-Run the playbook using this command ansible-playbook metricbeat-playbook.yml and navigate to Kibana > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.
-  Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard
-  Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics
-  Metricbeat Module Kibana - Metricbeat Docker Web-2 metrics
-  Metricbeat Module Kibana - Metricbeat Docker DVWA-VM3 metrics
-
-Install Filebeat onto VM's
-Login to Kibana > Logs : Add log data > System logs > DEB > Getting started
-Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
-(Download the Filebeat to the VM)
-
-Install Metricbeat onto VM's
-Login to Kibana > Add Metric Data > Docker Metrics > DEB > Getting Started
-Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb
-(Download the Metricbeat to the VM)
-Answer the following questions to fill in the blanks:
-
-Which file is the playbook?
-
-For Ansible create My First Playbook
-For Filebeat create Filebeat Playbook
-For Metricbeat create Metricbeat Playbook - Where do you copy it?
-/etc/ansible/
-Which file do you update to make Ansible run the playbook on a specific machine?
-
-/etc/ansible/hosts file (IP of the Virtual Machines).
-How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-
-I have specified two separate groups in the etc/ansible/hosts file. One of the group will be webservers which has the IPs of the 3 VMs that I will install Filebeat to. The other group is named ELKserver which will have the IP of the VM I will install ELK to.
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
-
-  The specific commands the user will need to run in order to download the playbook and configuration files, update the files, etc:
-COMMAND                                         |              	PURPOSE
-ssh-keygen                                      |	create a ssh key for setup VM's
-sudo cat .ssh/id_rsa.pub                        |	to view the ssh public key
-ssh azadmin@Jump-Box-Provisioner IP address     |	to log into the Jump-Box-Provisioner
-sudo docker container list -a                   |	list all docker containers
-sudo docker start dremy_elbakyan                |	start docker container dremy_elbakyan
-sudo docker ps                                  |-a	list all active/inactive containers
-sudo docker attach dremy_elbakyan               |	effectively sshing into the dremy_elbakyan container
-cd /etc/ansible                                 |	Change directory to the Ansible directory
-ls -laA                                         |	List all file in directory (including hidden)
-nano /etc/ansible/hosts                         |	to edit the hosts file
-nano /etc/ansible/ansible.cfg                   |	to edit the ansible.cfg file
-nano /etc/ansible/pentest.yml	                  | to edit the My-Playbook
-ansible-playbook [location][filename]           |	to run the playbook
-sudo lsof /var/lib/dpkg/lock-frontend           |	unlocking a locked file
-ssh ansible@Web-1 IP address	                  | to log into the Web-1 VM
-ssh ansible@Web-2 IP address	                  | to log into the Web-2 VM
-ssh ansible@DVWA-VM3 IP address	                | to log into the DVWA-VM3 VM
-ssh ansible@ELKserver IP address	              | to log into the ELKserver VM
-exit	                                          | to exit out of docker containers/Jump-Box-Provisioners
-nano /etc/ansible/ansible.cfg	                  | to edit the ansible.cfg file
-nano /etc/ansible/hosts	                        | to edit the hosts file
-nano /etc/ansible/pentest.yml	                  | to edit the My-Playbook
-ansible-playbook [location][filename]	          | to run the playbook
-sudo apt-get update	                            | this will update all packages
-sudo apt install docker.io                      |	install docker application
-sudo service docker                             | start	start the docker application
-sudo systemctl status docker                    |	status of the docker application
-sudo systemctl                                  | start docker	start the docker service
-sudo docker pull cyberxsecurity/ansible	        | pull the docker container file
-sudo docker run -ti cyberxsecurity/ansible bash |	run and create a docker container image
-ansible -m ping                                 | all	check the connection of ansible containers
-curl -L -O [location of the file on the web]    |	to download a file from the web
-dpkg -i [filename]	                            | to install the file i.e. (filebeat & metricbeat)
-nano filebeat-config.yml	                      | create and edit filebeat config file
-nano filebeat-playbook.yml	                    | write YAML file to install filebeat on webservers
-nano metricbeat-config.yml	                    | create metricbeat config file and edit it
-nano metricbeat-playbook.yml	                  | write YAML file to install metricbeat on webservers
+_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
