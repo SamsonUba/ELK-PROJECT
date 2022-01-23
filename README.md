@@ -25,7 +25,7 @@ Load balancing ensures that the application will be highly functional and availa
 
 : What aspect of security do load balancers protect?
 
-      Load balancers add resiliency by rerouting live traffic from one server to another if a server falls prey to a DDos attack or otherwise become unavailable.
+  Load balancers add resiliency by rerouting live traffic from one server to another if a server falls prey to a DDos attack or otherwise become unavailable.
 
  What is the advantage of a jump box? 
 
@@ -34,10 +34,10 @@ Load balancing ensures that the application will be highly functional and availa
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network and system systemlogs.
 
 What does Filebeat watch for?
-    Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+  Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
 
 What does Metricbeat record?
-    Metricbeats takes the metrics and statistics that it collects and ship them to the output that you specify, such as Elastic or Logstash.
+  Metricbeats takes the metrics and statistics that it collects and ship them to the output that you specify, such as Elastic or Logstash.
 
 The configuration details of each machine may be found below.
 
@@ -158,9 +158,9 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the yml file to ansible folder.
+- Update the config file to include remote users and ports
+- Run the playbook, and navigate to Kibana ((Your IP Address):5601) to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
