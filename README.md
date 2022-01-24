@@ -183,11 +183,11 @@ Metricbeat will be used to monitor VM stats, per CPU core stats, per filesystem 
 
   ![Metricbeat Docker Overview ECS dashboard](https://user-images.githubusercontent.com/85652618/150703995-e496df8d-5c9f-423e-9d39-57762355c694.png)
 
-    ![Metricbeat Docker Web-1_metrics](https://user-images.githubusercontent.com/85652618/150704016-91f3f6b5-67d6-40d0-b3a3-fb3ff97f6174.png)
+  ![Metricbeat Docker Web-1_metrics](https://user-images.githubusercontent.com/85652618/150704122-2f2003c9-8ad6-43f4-a322-179367a3ee21.png)
 
-    ![Metricbeat Docker Web-2_metrics](https://user-images.githubusercontent.com/85652618/150704035-087e2d1b-1824-4219-8d5d-3a50f8074300.png)
+  ![Metricbeat Docker Web-2_metrics](https://user-images.githubusercontent.com/85652618/150704035-087e2d1b-1824-4219-8d5d-3a50f8074300.png)
 
-    ![Metricbeat Docker DVWA-VM3_metrics](https://user-images.githubusercontent.com/85652618/150704047-c5a7e474-aef9-470f-a7e6-44521d05f5a6.png)
+  ![Metricbeat Docker DVWA-VM3_metrics](https://user-images.githubusercontent.com/85652618/150704047-c5a7e474-aef9-470f-a7e6-44521d05f5a6.png)
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
