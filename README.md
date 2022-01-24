@@ -77,11 +77,11 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
   What is the main advantage of automating configuration with Ansible?
-   # There are multiple advantages, Ansible lets you quickly and easily deploy multi-tier application through a YAML playbook.
+   - There are multiple advantages, Ansible lets you quickly and easily deploy multi-tier application through a YAML playbook.
 
-   # You don't need to write custom code to automate your systems.
+   - You don't need to write custom code to automate your systems.
 
-   # Ansible will also figure out how to get your systems to the state you want them to be in.
+   - Ansible will also figure out how to get your systems to the state you want them to be in.
 
 
 The playbook implements the following tasks:
@@ -97,38 +97,38 @@ The playbook implements the following tasks:
   # Install Docker.io
   - name: Install docker.io
     apt:
-      update_cache: yes
-      force_apt_get: yes
-      name: docker.io
-      state: present
+     -  update_cache: yes
+     -  force_apt_get: yes
+     -  name: docker.io
+     -  state: present
 
 # Install Python-pip
   - name: Install python3-pip
     apt:
-      force_apt_get: yes
-      name: python3-pip
-      state: present
+      -  force_apt_get: yes
+      -  name: python3-pip
+      -  state: present
 
 # Use pip module (It will default to pip3)
   - name: Install Docker module
     pip:
-      name: docker
-      state: present
-      `docker`, which is the Docker Python pip module.
+     -  name: docker
+     -  state: present
+     -  `docker`, which is the Docker Python pip module.
 # Increase Virtual Memory
  - name: Use more memory
    sysctl:
-     name: vm.max_map_count
-     value: '262144'
-     state: present
-     reload: yes
+     -  name: vm.max_map_count
+     -  value: '262144'
+     -  state: present
+     -  reload: yes
 # Download and Launch ELK Docker Container (image sebp/elk)
  - name: Download and launch a docker elk container
    docker_container:
-     name: elk
-     image: sebp/elk:761
-     state: started
-     restart_policy: always
+     -  name: elk
+     -  image: sebp/elk:761
+     -  state: started
+     -  restart_policy: always
 # Published ports 5044, 5601 and 9200 were made available
      published_ports:
        -  5601:5601
@@ -163,14 +163,13 @@ This ELK server is configured to monitor the following machines:
 We have installed the following Beats on these machines:
 
   Filebeat
-
-    ![filebeat success](https://user-images.githubusercontent.com/85652618/150703890-23768563-8ecb-490d-8098-2660798ea368.png)
+  ![filebeat success](https://user-images.githubusercontent.com/85652618/150706315-82b4ccf8-65d9-429e-ab47-9c25857233d4.png)
 
 
   Metricbeat
 
-    ![metricbeat success](https://user-images.githubusercontent.com/85652618/150703903-b463cf69-349b-4b5b-9b1b-79f1b12f2353.png)
-  
+   ![metricbeat success](https://user-images.githubusercontent.com/85652618/150706323-170304ba-5a14-4986-8ada-d80527ec7373.png)
+
 
 These Beats allow us to collect the following information from each machine:
 
@@ -208,34 +207,34 @@ Run the playbook using this command : ansible-playbook /etc/ansible/install-elk.
 Download Filebeat playbook usng this command:
 
  - curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml
-Copy the Filebeat Config file to (/etc/ansible)
-Update the (filebeat-config.yml) file to include the (ELK private IP 10.2.0.4) as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/filebeat-config.yml
+- Copy the Filebeat Config file to (/etc/ansible)
+- Update the (filebeat-config.yml) file to include the (ELK private IP 10.2.0.4) as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/filebeat-config.yml
 
 output.elasticsearch:
-  Boolean flag to enable or disable the output module.
-  enabled: true
+  #Boolean flag to enable or disable the output module.
+  #enabled: true
   
-   Array of hosts to connect to.
-   Scheme and port can be left out and will be set to the default (http and 9200)
-   In case you specify and additional path, the scheme is required: http://localhost:9200/path
-   IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-  hosts: ["10.2.0.4:9200"]
-  username: "elastic"
-  password: "changeme" # TODO: Change this to the password you set
+   #Array of hosts to connect to.
+   #Scheme and port can be left out and will be set to the default (http and 9200)
+   #In case you specify and additional path, the scheme is required: http://localhost:9200/path
+   #IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
+  - hosts: ["10.2.0.4:9200"]
+  - username: "elastic"
+  - password: "changeme" # TODO: Change this to the password you set
 
- Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
- This requires a Kibana endpoint configuration.
+ #Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+ #This requires a Kibana endpoint configuration.
 setup.kibana:
   host: "10.2.0.4:5601" 
- TODO: Change this to the IP address of your ELK server
-Run the playbook using this command ansible-playbook filebeat-playbook.yml and navigate to Kibana > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
+ #TODO: Change this to the IP address of your ELK server
+- Run the playbook using this command ansible-playbook filebeat-playbook.yml and navigate to Kibana > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
 
 # For Metricbeat
 
-Download Metricbeat playbook using this command:
+- Download Metricbeat playbook using this command:
 
-- curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml Copy the Metricbeat Config file to /etc/ansible
-Update the metricbeat-config.yml file to include the ELK private IP 10.2.0.4 as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/metricbeat-config.yml
+-- curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml Copy the Metricbeat Config file to /etc/ansible
+- Update the metricbeat-config.yml file to include the ELK private IP 10.2.0.4 as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/metricbeat-config.yml
 
 #============================== Kibana =====================================
 
