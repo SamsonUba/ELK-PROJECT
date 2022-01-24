@@ -110,7 +110,7 @@ The playbook implements the following tasks:
       name: python3-pip
       state: present
 
-    # Use pip module (It will default to pip3)
+    #Use pip module (It will default to pip3)
   - name: Install Docker module
     pip:
       name: docker
