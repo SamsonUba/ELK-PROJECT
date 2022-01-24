@@ -21,23 +21,23 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly # functional and available, in addition to restricting traffic to the network.
+Load balancing ensures that the application will be highly (functional) and (available), in addition to restricting (traffic) to the network.
 
 : What aspect of security do load balancers protect?
 
-  Load balancers add resiliency by rerouting live traffic from one server to another if a server falls prey to a DDos attack or otherwise become unavailable.
+ # Load balancers add resiliency by rerouting live traffic from one server to another if a server falls prey to a DDos attack or otherwise become unavailable.
 
  What is the advantage of a jump box? 
 
-  A Jump Box Provisioner is also important as it prevents Azure VMs from being exposed via a public IP Address. This allows us to do monitoring and logging on a single box. We can also restrict the IP addresses able to communicate with the Jump Box as we've done here.
+#  A Jump Box Provisioner is also important as it prevents Azure VMs from being exposed via a public IP Address. This allows us to do monitoring and logging on a single box. We can also restrict the IP addresses able to communicate with the Jump Box as we've done here.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network and system systemlogs.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the (network) and (system logs).
 
 What does Filebeat watch for?
-  Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+ # Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
 
 What does Metricbeat record?
-  Metricbeats takes the metrics and statistics that it collects and ship them to the output that you specify, such as Elastic or Logstash.
+#  Metricbeats takes the metrics and statistics that it collects and ship them to the output that you specify, such as Elastic or Logstash.
 
 The configuration details of each machine may be found below.
 
@@ -54,15 +54,15 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-     Workstation MY Public IP through TCP 5601.
+Only the (Jump-Box-Provisioner) machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+   #  Workstation MY Public IP through TCP 5601.
 
-Machines within the network can only be accessed by Workstation and Jump-Box-Provisioner through SSH Jump-Box.
+Machines within the network can only be accessed by (Workstation and Jump-Box-Provisioner through SSH Jump-Box.)
   Which machine did you allow to access your ELK VM?
-    Jump-Box_provisioner IP: 10.1.0.4 via SSH port 22
+   # Jump-Box_provisioner IP: 10.1.0.4 via SSH port 22
 
    What was its IP address?
-    Workstation MY Public IP via port 5601
+   # Workstation MY Public IP via port 5601
 
 A summary of the access policies in place can be found in the table below.
 
@@ -77,11 +77,11 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
   What is the main advantage of automating configuration with Ansible?
-    There are multiple advantages, Ansible lets you quickly and easily deploy multi-tier application through a YAML playbook.
+   # There are multiple advantages, Ansible lets you quickly and easily deploy multi-tier application through a YAML playbook.
 
-    You don't need to write custom code to automate your systems.
+   # You don't need to write custom code to automate your systems.
 
-    Ansible will also figure out how to get your systems to the state you want them to be in.
+   # Ansible will also figure out how to get your systems to the state you want them to be in.
 
 
 The playbook implements the following tasks:
@@ -238,14 +238,14 @@ Download Metricbeat playbook using this command:
 curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml Copy the Metricbeat Config file to /etc/ansible
 Update the metricbeat-config.yml file to include the ELK private IP 10.2.0.4 as below from root@9ddf6fe7eb3f:~# nano /etc/ansible/metricbeat-config.yml
 
-# ============================== Kibana =====================================
+#============================== Kibana =====================================
 
  Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
  This requires a Kibana endpoint configuration.
 setup.kibana:
   host: "10.2.0.4:5601"
   
-# -------------------------- Elasticsearch output ------------------------------
+#-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
    TODO: Change the hosts IP address to the IP address of your ELK server
    TODO: Change password from `changem` to the password you created
