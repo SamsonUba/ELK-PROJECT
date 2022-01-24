@@ -165,28 +165,30 @@ We have installed the following Beats on these machines:
 
   Filebeat
 
-    Filebeat Module Status Screeenshot
+    ![filebeat success](https://user-images.githubusercontent.com/85652618/150703890-23768563-8ecb-490d-8098-2660798ea368.png)
+
 
   Metricbeat
 
-    Metricbeat Module Status Screenshot
-
-
-
+    ![metricbeat success](https://user-images.githubusercontent.com/85652618/150703903-b463cf69-349b-4b5b-9b1b-79f1b12f2353.png)
   
 
 These Beats allow us to collect the following information from each machine:
 
 Filebeat will be used to collect log files from very specific files such as Apache, Microsoft Azure tools and webservers, MySQL databases.
 
-  Filebeat Module Kibana Dashboard Screenshot
+  ![Filebeat_System Syslog dashboard](https://user-images.githubusercontent.com/85652618/150703981-02c58eab-bdd9-4392-b810-5d665fea4ec7.png)
 
 Metricbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
 
-  Metricbeat Module Kibana-Metric Docker Overview ECS Dashboard
-    Metric Module Kibana - Metric Docker Web-1 metric
-    Metric Module Kibana - Metric Docker Web-2 metric
-    Metric Module Kibana - Metric Docker DVWA-VM3 metrics
+  ![Metricbeat Docker Overview ECS dashboard](https://user-images.githubusercontent.com/85652618/150703995-e496df8d-5c9f-423e-9d39-57762355c694.png)
+
+    ![Metricbeat Docker Web-1_metrics](https://user-images.githubusercontent.com/85652618/150704016-91f3f6b5-67d6-40d0-b3a3-fb3ff97f6174.png)
+
+    ![Metricbeat Docker Web-2_metrics](https://user-images.githubusercontent.com/85652618/150704035-087e2d1b-1824-4219-8d5d-3a50f8074300.png)
+
+    ![Metricbeat Docker DVWA-VM3_metrics](https://user-images.githubusercontent.com/85652618/150704047-c5a7e474-aef9-470f-a7e6-44521d05f5a6.png)
+
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
