@@ -139,12 +139,20 @@ Published ports 5044, 5601 and 9200 were made available
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ELKserver
-  Elkserver.png
+  ![Elkserver](https://user-images.githubusercontent.com/85652618/150703715-437f0562-ae97-4cba-82fd-800af9c26c83.png)
+
 
  Jump-Box-Provisioner
+ ![Provisioner](https://user-images.githubusercontent.com/85652618/150703734-ba2874f9-52de-4fc2-85c8-ddc3a6d3fdfd.png)
+ 
+ Web-1
+ ![WEB-1](https://user-images.githubusercontent.com/85652618/150703768-a852487a-d583-4a17-b9c4-d576cd4a01bd.png)
 
+ Web-2
+ ![WEB-2](https://user-images.githubusercontent.com/85652618/150703785-a8d3055c-de5f-4a86-98de-9b817314716d.png)
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+  DVWA-VM3
+  ![VM3](https://user-images.githubusercontent.com/85652618/150703816-9fe6dc25-16a7-4c58-8fdb-021b86c52572.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
