@@ -89,7 +89,7 @@ The playbook implements the following tasks:
 
   Specify a different group of machine:
 
-- - name: Config elk VM with Docker
+  - name: Config elk VM with Docker
     hosts: elk
     become: true
     tasks:
