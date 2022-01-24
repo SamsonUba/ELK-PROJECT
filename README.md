@@ -139,7 +139,7 @@ Published ports 5044, 5601 and 9200 were made available
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ELKserver
- C:\Users\sunyi\OneDrive\Desktop\project_elk\Elk-Stack-Deployment-Project> 
+  Elkserver.png
 
  Jump-Box-Provisioner
 
